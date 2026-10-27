@@ -4,14 +4,11 @@
 \pgfplotstablegetelem{1}{zero_coverage}\of\coveragedata
 \edef\EnglishZero{\pgfplotsretval}
 
-\place{556}{805}{257}{\fs{28}{34}Portuguese\hfill
-  \color{Teal}\bfseries\PortugueseZero\%}
-\panel{556}{826}{813}{838}{Grid}
-\pgfmathsetmacro{\PTBarEnd}{556+257*\PortugueseZero/100}
-\panel{556}{826}{\PTBarEnd}{838}{Teal}
-
-\place{556}{858}{257}{\fs{28}{34}English\hfill
-  \color{Teal}\bfseries\EnglishZero\%}
-\panel{556}{879}{813}{891}{Grid}
-\pgfmathsetmacro{\ENBarEnd}{556+257*\EnglishZero/100}
-\panel{556}{879}{\ENBarEnd}{891}{Teal}
+\draw[Grid,line width=0.9pt]
+  ([xshift=432mm,yshift=-1000mm]current page.north west) --
+  ([xshift=813mm,yshift=-1000mm]current page.north west);
+\place{438}{1006}{367}{\fs{28}{35}Portuguese\hfill \PortugueseZero\%}
+\place{438}{1025}{367}{\fs{28}{35}English\hfill \EnglishZero\%}
+\draw[Grid,line width=0.9pt]
+  ([xshift=432mm,yshift=-1042mm]current page.north west) --
+  ([xshift=813mm,yshift=-1042mm]current page.north west);

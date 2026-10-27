@@ -2,19 +2,19 @@
 \usepackage[size=custom,width=84.1,height=118.9,scale=1.0]{beamerposter}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{tgheros}
+\usepackage{tgtermes}
+\usefonttheme{serif}
 \usepackage{tikz}
 \usepackage{pgfplots}
 \usepackage{qrcode}
 \usetikzlibrary{calc}
 \pgfplotsset{compat=1.18}
-\definecolor{Ink}{HTML}{142C3A}
-\definecolor{Teal}{HTML}{00685E}
-\definecolor{Blue}{HTML}{3C5274}
-\definecolor{Muted}{HTML}{526572}
-\definecolor{Grid}{HTML}{D8E2E6}
-\definecolor{Wash}{HTML}{EFF6F5}
-\definecolor{Pale}{HTML}{F3F6F8}
+\definecolor{Ink}{HTML}{222222}
+\definecolor{NILCBlue}{HTML}{3331B4}
+\definecolor{SeriesA}{HTML}{3331B4}
+\definecolor{SeriesB}{HTML}{555555}
+\definecolor{Muted}{HTML}{555555}
+\definecolor{Grid}{HTML}{DADADA}
 \setbeamercolor{normal text}{fg=Ink,bg=white}
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{headline}{}
@@ -25,7 +25,7 @@
   pdftitle={When Short Responses Are Hard to Distinguish in Translation Audits},
   pdfauthor={João Victor M. Correa; Pedro Shiozawa; Victor Hierro Moraes Ferreira; Emanoel Cristhian Leão Marinho},
   pdfsubject={MultiPsyche 2026 poster, paper 2},
-  colorlinks=true,urlcolor=Teal
+  colorlinks=true,urlcolor=Ink
 }
 \newcommand{\fs}[2]{\fontsize{#1}{#2}\selectfont}
 \newcommand{\place}[4]{%
@@ -33,129 +33,144 @@
         align=left,text width=#3mm]
     at ([xshift=#1mm,yshift=-#2mm]current page.north west)
     {\raggedright\hyphenpenalty=10000\exhyphenpenalty=10000 #4\par};}
-\newcommand{\panel}[5]{%
-  \fill[#5,rounded corners=2mm]
+\newcommand{\sectiontitle}[4]{%
+  \place{#1}{#2}{#3}{\color{NILCBlue}\fs{43}{51}\bfseries #4}
+  \draw[NILCBlue,line width=1.2pt]
     ([xshift=#1mm,yshift=-#2mm]current page.north west)
-    rectangle ([xshift=#3mm,yshift=-#4mm]current page.north west);}
+    ++(0,-22mm)--++(#3mm,0);}
 \newcommand{\paperurl}{https://openreview.net/forum?id=Kq2qqKPOUE}
 \newcommand{\codeurl}{https://github.com/vicmcorrea/cross-lingual-translation-audit}
 
 \begin{document}
 \begin{frame}[plain]
 \begin{tikzpicture}[remember picture,overlay]
-\panel{0}{0}{841}{190}{Ink}
 
-\place{28}{22}{785}{\color{white}\fs{25}{30}%
-  MultiPsyche 2026 \hfill AACL-IJCNLP 2026 \enspace | \enspace Paper 2}
-\place{28}{47}{785}{\color{white}\fs{88}{97}\bfseries
+\place{29}{43}{90}{\includegraphics[width=89mm]{assets/nilc.pdf}}
+\place{724}{46}{89}{\includegraphics[width=89mm]{assets/icmc-usp.pdf}}
+\place{130}{32}{581}{\centering\fs{72}{80}\bfseries
   When Short Responses Are Hard\\
   to Distinguish in Translation Audits}
-\place{28}{128}{785}{\color{white}\fs{29}{37}\bfseries
+\place{28}{111}{785}{\centering\fs{28}{35}\bfseries
   João Victor M. Correa\textsuperscript{1,2}\quad
   Pedro Shiozawa\textsuperscript{3}\quad
   Victor Hierro Moraes Ferreira\textsuperscript{4}\quad
   Emanoel Cristhian Leão Marinho\textsuperscript{4}}
-\place{28}{151}{785}{\color{white}\fs{24}{31}%
+\place{28}{135}{785}{\centering\fs{24}{31}
   \textsuperscript{1}Universidade de São Paulo\qquad
   \textsuperscript{2}Great People Mental Health\\
   \textsuperscript{3}Faculdade de Ciências Médicas da Santa Casa de São Paulo\qquad
   \textsuperscript{4}Universidade Federal do Pará}
+\place{28}{169}{785}{\centering\color{Muted}\fs{24}{30}
+  MultiPsyche 2026 \enspace | \enspace AACL-IJCNLP 2026 \enspace | \enspace Paper 2}
+\draw[NILCBlue,line width=2.4pt]
+  ([xshift=28mm,yshift=-190mm]current page.north west) --
+  ([xshift=813mm,yshift=-190mm]current page.north west);
 
-\place{28}{209}{785}{\color{Teal}\fs{24}{29}\bfseries Main finding}
-\place{28}{225}{785}{\fs{48}{57}\bfseries
-  Short responses offer fewer clues for retrieval.\\
-  Translation quality requires separate evidence.}
+\sectiontitle{28}{218}{374}{Introduction}
+\place{28}{253}{374}{\fs{30}{38}
+  Workplace surveys often contain brief or repeated answers.
+  Translation makes these responses accessible to English-centered
+  analysis tools, including resources used in mental-health research.
+  \par\vspace{7mm}
+  We examine what reference-free audit tools reveal about
+  Portuguese-to-English survey translations and how response length,
+  repetition and lexical coverage shape their interpretation.}
 
-\panel{28}{286}{813}{353}{Wash}
-\place{43}{297}{240}{\color{Teal}\fs{65}{72}\bfseries 44,118}
-\place{43}{326}{240}{\fs{27}{32}Portuguese-English pairs}
-\place{312}{297}{245}{\color{Teal}\fs{65}{72}\bfseries 14,706}
-\place{312}{326}{245}{\fs{27}{32}Survey-specific records}
-\place{589}{297}{205}{\color{Teal}\fs{65}{72}\bfseries 4}
-\place{589}{326}{205}{\fs{27}{32}Workplace surveys}
+\sectiontitle{28}{357}{374}{Data and methods}
+\place{28}{394}{374}{\fs{30}{38}
+  The corpus contains \textbf{44,118 response pairs} from
+  \textbf{14,706 survey-specific records} across four Brazilian
+  workplace survey cohorts from 2023 to 2025.
+  Each record contributes three answers.
+  One third of pairs come from mental-health or well-being prompts.}
+\place{28}{464}{374}{\fs{30}{38}
+  \textbf{Paired-text retrieval.}
+  Qwen3-Embedding-4B [1] ranks all 44,118 candidates in the other
+  language. The paired target or an exact normalized duplicate
+  counts as a correct match. We also tested the 8B encoder.}
+\place{28}{524}{374}{\fs{30}{38}
+  \textbf{Quality estimation.}
+  COMETKiwi DA-XL [2] estimates translation quality from
+  the Portuguese source and English translation.}
+\place{28}{568}{374}{\fs{30}{38}
+  \textbf{Language and affective coverage.}
+  Lingua provides language flags. EmoAtlas [3] measures
+  emotion-lexicon coverage in each language.}
+\place{28}{612}{374}{\color{Muted}\fs{27}{34}
+  Retrieval, quality estimation and coverage are interpreted separately.}
 
-\place{28}{377}{500}{\fs{43}{51}\bfseries Retrieval rises with response length}
-\place{28}{402}{500}{\fs{27}{34}%
-  Rank-one recovery finds the paired text or an exact normalized
-  duplicate in the first position.}
-\place{28}{440}{500}{\color{Teal}\fs{26}{32}%
-  \tikz[baseline=-0.5ex]{\draw[Teal,line width=2.2pt] (0,0)--(12mm,0);
-    \fill[Teal] (6mm,0) circle (1.4mm);}
+\sectiontitle{28}{688}{374}{Interpretation}
+\place{28}{725}{374}{\fs{30}{38}
+  Retrieval measures how distinguishable a paired text is within
+  this corpus. A missed match can reflect brief or repeated wording.
+  \par\vspace{7mm}
+  COMETKiwi follows a different pattern across response lengths.
+  Reporting the measures separately keeps their meanings clear.
+  Bilingual human ratings would calibrate the quality estimates.}
+
+\sectiontitle{28}{833}{374}{Limitations}
+\place{28}{870}{374}{\fs{30}{38}
+  Results describe one language pair and one workplace-survey
+  setting. Translation provenance is incomplete, and encoder
+  comparisons remain within the Qwen3 family.
+  \par\vspace{7mm}
+  Assessing translation accuracy and emotional or cultural
+  equivalence requires human assessment and validation in
+  the target domain.}
+\place{28}{1001}{374}{\color{Muted}\fs{25}{32}
+  Survey comments remain confidential.
+  The public code includes frozen configurations and synthetic tests.}
+
+\sectiontitle{432}{218}{381}{Results}
+\place{432}{252}{381}{\fs{32}{40}\bfseries Retrieval by response length}
+\place{432}{277}{381}{\fs{26}{33}
+  Rank-one recovery finds the paired target or an exact
+  normalized duplicate in the first position.}
+\place{432}{316}{381}{\color{SeriesA}\fs{25}{31}
+  \tikz[baseline=-0.5ex]{\draw[SeriesA,line width=2pt] (0,0)--(12mm,0);
+    \fill[SeriesA] (6mm,0) circle (1.3mm);}
   \enspace English query $\rightarrow$ Portuguese candidates}
-\place{28}{455}{500}{\color{Blue}\fs{26}{32}%
-  \tikz[baseline=-0.5ex]{\draw[Blue,line width=2.2pt,dashed] (0,0)--(12mm,0);
-    \fill[Blue] (4.8mm,-1.2mm) rectangle (7.2mm,1.2mm);}
+\place{432}{332}{381}{\color{SeriesB}\fs{25}{31}
+  \tikz[baseline=-0.5ex]{\draw[SeriesB,line width=2pt,dashed] (0,0)--(12mm,0);
+    \fill[SeriesB] (4.8mm,-1.2mm) rectangle (7.2mm,1.2mm);}
   \enspace Portuguese query $\rightarrow$ English candidates}
-\place{29}{479}{500}{\input{figures/length_retrieval.tex}}
-\place{28}{752}{500}{\color{Muted}\fs{24}{30}%
+\place{433}{357}{380}{\input{figures/length_retrieval.tex}}
+\place{432}{649}{381}{\color{Muted}\fs{25}{32}
   Error bars show 95\% bootstrap intervals from 2,000 resamples,
-  clustered by survey-specific record. All queries search the
+  clustered by survey-specific record. Every query searches the
   full set of 44,118 candidates.}
 
-\place{28}{810}{500}{\fs{40}{48}\bfseries Quality estimates follow a different pattern}
-\place{29}{844}{500}{\input{figures/quality_length.tex}}
-\place{28}{1010}{500}{\color{Muted}\fs{24}{30}%
-  COMETKiwi estimates learned translation quality.
-  Human ratings would calibrate these scores for short survey text.}
+\place{432}{726}{381}{\fs{32}{40}\bfseries Quality estimates differ from retrieval}
+\place{433}{757}{380}{\input{figures/quality_length.tex}}
+\place{432}{932}{381}{\color{Muted}\fs{25}{32}
+  COMETKiwi scores are model estimates.
+  Calibration against bilingual ratings is needed for this domain.}
 
-\place{556}{377}{257}{\fs{43}{51}\bfseries Study and audit}
-\place{556}{405}{257}{\fs{27}{34}%
-  Archived translations from Brazilian workplace surveys.
-  One third of pairs come from mental-health or well-being prompts.
-  Each record contributes three answers.}
-
-\panel{556}{481}{813}{541}{Pale}
-\place{568}{489}{232}{\color{Teal}\fs{31}{37}\bfseries Retrieval}
-\place{568}{510}{232}{\fs{25}{31}%
-  Qwen3-Embedding-4B\\
-  8B model-scale sensitivity}
-
-\panel{556}{553}{813}{613}{Pale}
-\place{568}{561}{232}{\color{Teal}\fs{31}{37}\bfseries Quality estimation}
-\place{568}{582}{232}{\fs{25}{31}%
-  COMETKiwi DA-XL\\
-  Source + translation}
-
-\panel{556}{625}{813}{685}{Pale}
-\place{568}{633}{232}{\color{Teal}\fs{31}{37}\bfseries Language and coverage}
-\place{568}{654}{232}{\fs{25}{31}%
-  Lingua + EmoAtlas\\
-  Language labels and emotion lexicons}
-
-\place{556}{716}{257}{\fs{40}{48}\bfseries Emotion-lexicon\\coverage has gaps}
-\place{556}{765}{257}{\color{Muted}\fs{25}{31}%
-  Share of responses with zero\\emotion-lexicon coverage}
+\place{432}{979}{381}{\fs{30}{37}\bfseries Responses with zero emotion-lexicon coverage}
 \input{figures/emotion_coverage.tex}
-\place{556}{908}{257}{\fs{26}{33}%
-  Zero coverage limits lexical comparison.
-  Assessing emotional meaning requires separate human evaluation.}
+\place{432}{1050}{381}{\color{Muted}\fs{25}{32}
+  Zero coverage limits lexical comparisons across languages.}
 
-\draw[Grid,line width=1.8pt]
-  ([xshift=28mm,yshift=-1044mm]current page.north west) --
-  ([xshift=813mm,yshift=-1044mm]current page.north west);
-\place{28}{1063}{580}{\color{Teal}\fs{36}{44}\bfseries Interpret each measure on its own}
-\place{28}{1087}{580}{\fs{26}{33}%
-  Report length, repetition and coverage alongside scores.
-  Bilingual human review is needed to assess translation accuracy
-  and emotional or cultural equivalence.}
-\place{28}{1128}{580}{\color{Muted}\fs{23}{29}%
-  Evidence comes from automated criteria in one setting and language pair.
-  Translation provenance is incomplete. Survey comments remain confidential.}
-
-\place{662}{1059}{65}{\fs{26}{32}\bfseries Paper}
-\place{662}{1078}{65}{\qrcode[height=45mm]{\paperurl}}
-\place{754}{1059}{65}{\fs{26}{32}\bfseries Code}
-\place{754}{1078}{65}{\qrcode[height=45mm]{\codeurl}}
-\place{662}{1131}{151}{\color{Muted}\fs{21}{27}%
-  Paper, code and synthetic tests\\
+\draw[Grid,line width=1.2pt]
+  ([xshift=28mm,yshift=-1089mm]current page.north west) --
+  ([xshift=813mm,yshift=-1089mm]current page.north west);
+\place{28}{1102}{562}{\color{NILCBlue}\fs{29}{36}\bfseries Selected references}
+\place{28}{1121}{562}{\fs{21}{27}
+  [1] Zhang et al. (2025).
+  \href{https://arxiv.org/abs/2506.05176}{Qwen3 Embedding. arXiv:2506.05176.}\par
+  [2] Rei et al. (2023).
+  \href{https://aclanthology.org/2023.wmt-1.73/}{Scaling up CometKiwi. WMT 2023.}\par
+  [3] Semeraro et al. (2025).
+  \href{https://doi.org/10.3758/s13428-024-02553-7}{EmoAtlas. Behavior Research Methods.}}
+\place{28}{1164}{562}{\fs{23}{29}
+  Correspondence\enspace
   \href{mailto:victormcorrea@usp.br}{victormcorrea@usp.br}}
 
-\place{28}{1162}{785}{\color{Muted}\fs{18}{23}%
-  Methods\enspace
-  \href{https://arxiv.org/abs/2506.05176}{Zhang et al., 2025, Qwen3 Embedding}\enspace|\enspace
-  \href{https://aclanthology.org/2022.wmt-1.60/}{Rei et al., 2022}
-  \href{https://aclanthology.org/2023.wmt-1.73/}{and 2023, COMETKiwi}\enspace|\enspace
-  \href{https://doi.org/10.3758/s13428-024-02553-7}{Semeraro et al., 2025, EmoAtlas}}
+\place{653}{1101}{65}{\centering\fs{25}{31}\bfseries Paper}
+\place{663}{1121}{55}{\qrcode[height=44mm]{\paperurl}}
+\place{747}{1101}{65}{\centering\fs{25}{31}\bfseries Code}
+\place{757}{1121}{55}{\qrcode[height=44mm]{\codeurl}}
+
 \end{tikzpicture}
 \end{frame}
 \end{document}

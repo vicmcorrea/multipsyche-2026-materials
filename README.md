@@ -31,6 +31,13 @@ PGFPlots and TikZ source files in figures/.
 - The PDF uses vector plots, selectable text and embedded fonts.
 - Paper and code links are clickable and have QR codes.
 
+## Design
+
+The poster uses a conventional two-column academic layout with a centered title,
+serif typography and section rules. The white background, NILC blue and
+institutional marks follow the author's qualification slides. Asset provenance
+is recorded in assets/README.md.
+
 The [conference instructions](https://docs.google.com/presentation/d/1nAezbzgckj3WKgncHUN0pqZW-jNv7yOg_EiBU8-_ia4/edit)
 were checked on 27 October 2026. The workshop's email gives 28 October 2026 as
 the poster submission deadline. Its workshop-specific guidance makes the poster

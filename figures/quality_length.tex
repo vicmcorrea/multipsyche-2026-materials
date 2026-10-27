@@ -1,13 +1,13 @@
 \begin{tikzpicture}
 \begin{axis}[
-  width=484mm,height=146mm,
+  width=365mm,height=156mm,
   xmin=-0.15,xmax=3.15,ymin=0,ymax=1,
   xtick={0,1,2,3},xticklabels={1-2,3-5,6-20,21+},
   ytick={0,0.5,1},
   xlabel={Source response length (Portuguese words)},
   ylabel={Mean COMETKiwi},
-  tick label style={font=\fs{26}{32},text=Ink},
-  label style={font=\fs{26}{32},text=Ink},
+  tick label style={font=\fs{25}{31},text=Ink},
+  label style={font=\fs{25}{31},text=Ink},
   xlabel style={yshift=-2mm},
   axis lines=left,axis line style={Muted,line width=1.2pt},
   tick style={Muted,line width=1.2pt},
@@ -15,10 +15,10 @@
   clip=false,
 ]
 \addplot[
-  Ink,line width=3pt,mark=*,mark size=5.5pt,
+  Ink,line width=2.2pt,mark=*,mark size=5pt,
   nodes near coords,
   every node near coord/.append style={
-    font=\fs{26}{32}\bfseries,text=Ink,anchor=south,yshift=3mm,
+    font=\fs{25}{31},text=Ink,anchor=south,yshift=3mm,
     /pgf/number format/fixed,/pgf/number format/precision=3,
     /pgf/number format/fixed zerofill,
   },
