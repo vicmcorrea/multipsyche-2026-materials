@@ -29,10 +29,13 @@
     lexical coverage separately.}
   \sput{1.0}{5.05}{9.8}{\color{white!90}\fs{12}{16}
     Length, repetition and resource coverage shape what an audit can tell us.}
-  \sput{12.0}{3.0}{2.7}{\centering\color{white}\fs{11}{14}\bfseries Code}
-  \sput{12.10}{3.65}{2.5}{\colorbox{white}{\qrcode[height=2.1cm]{\codeurl}}}
+  \node[anchor=north,inner sep=0pt,text=white,font=\fs{11}{14}\bfseries]
+    at ([xshift=13.3cm,yshift=-2.55cm]current page.north west) {Code};
+  \node[anchor=north,inner sep=0pt]
+    at ([xshift=13.3cm,yshift=-3.10cm]current page.north west)
+    {\colorbox{white}{\qrcode[height=2.1cm]{\codeurl}}};
   \sput{1.0}{7.35}{11.2}{\color{white}\fs{11}{14}
-    João Victor M. Correa\\[4pt]
+    João Victor M. Correa\\
     \href{mailto:victormcorrea@usp.br}{\color{white}victormcorrea@usp.br}}
 \end{tikzpicture}
 \talknote{09:20--10:00, 40 seconds}{

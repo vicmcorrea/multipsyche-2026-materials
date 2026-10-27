@@ -1,9 +1,10 @@
 \begin{tikzpicture}[text width=,anchor=center]
+\path[use as bounding box] (0,0) rectangle (14.6,5.8);
 \begin{axis}[
-  slideaxis,width=13cm,height=4.8cm,
+  tallslideaxis,
   xmin=-0.5,xmax=1.5,ymin=-3.5,ymax=2.7,
   xtick={0,1},xticklabels={English query to Portuguese,Portuguese query to English},
-  ytick={-3,-2,-1,0,1,2},ylabel={8B minus 4B R@1 (percentage points)},
+  ytick={-3,-2,-1,0,1,2},
 ]
 \draw[MidGray,dashed,line width=0.7pt] (axis cs:-0.5,0) -- (axis cs:1.5,0);
 \addplot[SlideBlue,only marks,mark=*,mark size=3.2pt,
@@ -11,9 +12,10 @@
   error bar style={line width=1pt},error mark options={rotate=90,mark size=5pt}]
   table[x=x,y=difference,y error minus=minus,y error plus=plus,
     col sep=tab]{../shared/data/encoder-sensitivity.tsv};
-\node[anchor=north,font=\fs{12}{15}\bfseries,text=SlideBlue]
-  at (axis cs:0,-2.95) {$-2.37$};
-\node[anchor=south,font=\fs{12}{15}\bfseries,text=SlideBlue]
-  at (axis cs:1,1.95) {$+1.47$};
+\node[anchor=west,font=\fs{12}{15}\bfseries,text=SlideBlue]
+  at (axis cs:0.08,-2.37) {$-2.37$};
+\node[anchor=west,font=\fs{12}{15}\bfseries,text=SlideBlue]
+  at (axis cs:1.08,1.47) {$+1.47$};
 \end{axis}
+\plotlabels{8B minus 4B R@1\\(percentage points)}{Query direction}
 \end{tikzpicture}

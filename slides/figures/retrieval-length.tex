@@ -1,10 +1,10 @@
 \begin{tikzpicture}[text width=,anchor=center]
+\path[use as bounding box] (0,0) rectangle (14.6,5.8);
 \begin{axis}[
-  slideaxis,width=13.6cm,height=5.3cm,
+  tallslideaxis,
   xmin=-0.15,xmax=3.15,ymin=0,ymax=110,
   xtick={0,1,2,3},xticklabels={1--2,3--5,6--20,21+},
   ytick={0,20,40,60,80,100},
-  xlabel={Portuguese source length in words},ylabel={Rank-one recovery (\%)},
   legend style={anchor=north west,at={(0.025,0.98)},draw=none,fill=white,
     font=\fs{9}{12},cells={anchor=west}},
 ]
@@ -22,9 +22,13 @@
   table[x=x,y=pt_en,y error minus=pt_en_minus,y error plus=pt_en_plus,
     col sep=tab]{../shared/data/length-results.tsv};
 \addlegendentry{Portuguese query $\rightarrow$ English candidates}
-\node[anchor=west,font=\fs{10}{12}\bfseries,text=SlideBlue] at (axis cs:0.05,4) {8.4\%};
-\node[anchor=west,font=\fs{10}{12}\bfseries,text=MidGray] at (axis cs:0.05,19) {13.0\%};
+\draw[SlideBlue,line width=0.6pt]
+  (axis cs:0.04,8.385707) -- (axis cs:0.35,8.385707);
+\node[anchor=west,font=\fs{10}{12}\bfseries,text=SlideBlue]
+  at (axis cs:0.40,8.385707) {8.4\%};
+\node[anchor=south west,font=\fs{10}{12}\bfseries,text=MidGray] at (axis cs:0.08,24) {13.0\%};
 \node[anchor=east,font=\fs{10}{12}\bfseries,text=SlideBlue] at (axis cs:2.96,106) {99.1\%};
 \node[anchor=east,font=\fs{10}{12}\bfseries,text=MidGray] at (axis cs:2.96,91) {98.5\%};
 \end{axis}
+\plotlabels{Rank-one recovery (\%)}{Portuguese source length in words}
 \end{tikzpicture}

@@ -5,7 +5,7 @@
   \sput{0.9}{2.35}{6.7}{\centering\fs{11}{14}Portuguese--English response pairs}
   \sput{8.4}{1.50}{6.7}{\centering\fs{22}{26}\bfseries\color{SlideBlue}14,706}
   \sput{8.4}{2.35}{6.7}{\centering\fs{11}{14}survey-specific records}
-  \sput{0.7}{3.10}{14.6}{\input{figures/corpus.tex}}
+  \centerfigure{3.05}{\input{figures/corpus.tex}}
   \takeaway{Each retained record contributes one answer to each prompt family.}
   \source{Camera-ready article, Table 1 and cohort-selection description. Counts represent survey-specific records.}
 \end{tikzpicture}
@@ -23,7 +23,7 @@
 \begin{frame}[plain]
 \frametitle{Three audit views}
 \begin{tikzpicture}[remember picture,overlay]
-  \sput{0.7}{1.65}{14.6}{\input{figures/audit-views.tex}}
+  \sput{1.15}{1.65}{14.6}{\input{figures/audit-views.tex}}
   \takeaway{Retrieval, quality estimates and coverage are interpreted separately.}
   \source{Camera-ready article, Figure 2 and Data and Methods. Model references appear on the final backup slide.}
 \end{tikzpicture}
@@ -41,11 +41,11 @@
 \begin{frame}[plain]
 \frametitle{What rank-one recovery measures}
 \begin{tikzpicture}[remember picture,overlay]
-  \sput{0.7}{1.55}{14.6}{\input{figures/retrieval-definition.tex}}
-  \sput{0.9}{6.00}{6.7}{\centering\fs{21}{25}\bfseries\color{SlideBlue}71.80\%}
-  \sput{0.9}{6.90}{6.7}{\centering\fs{9.6}{12}English query to Portuguese candidates}
-  \sput{8.4}{6.00}{6.7}{\centering\fs{21}{25}\bfseries\color{MidGray}73.37\%}
-  \sput{8.4}{6.90}{6.7}{\centering\fs{9.6}{12}Portuguese query to English candidates}
+  \centerfigure{1.45}{\input{figures/retrieval-definition.tex}}
+  \sput{0.9}{5.95}{6.7}{\centering\fs{21}{25}\bfseries\color{SlideBlue}71.80\%}
+  \sput{0.9}{6.65}{6.7}{\centering\fs{9.3}{11.5}English query\\to Portuguese candidates}
+  \sput{8.4}{5.95}{6.7}{\centering\fs{21}{25}\bfseries\color{MidGray}73.37\%}
+  \sput{8.4}{6.65}{6.7}{\centering\fs{9.3}{11.5}Portuguese query\\to English candidates}
   \takeaway{Every query is ranked against all 44,118 texts in the other language.}
   \source{Camera-ready article, retrieval definition and Table 2. Percentages are overall duplicate-aware R@1.}
 \end{tikzpicture}
