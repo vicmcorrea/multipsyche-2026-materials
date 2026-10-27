@@ -87,13 +87,13 @@
 
 \sectiontitle{28}{218}{374}{Introduction}
 \place{28}{253}{374}{\fs{30}{38}
-  Workplace surveys often contain brief or repeated answers.
+  Workplace surveys often contain \textbf{brief or repeated answers}.
   Translation makes these responses accessible to English-centered
   analysis tools, including resources used in mental-health research.
   \par\vspace{7mm}
   We examine what reference-free audit tools reveal about
-  Portuguese-to-English survey translations and how response length,
-  repetition and lexical coverage shape their interpretation.}
+  Portuguese-to-English survey translations and how \textbf{response length,
+  repetition and lexical coverage} shape their interpretation.}
 
 \sectiontitle{28}{357}{374}{Data and methods}
 \place{28}{394}{374}{\fs{30}{38}
@@ -103,42 +103,40 @@
   Each record contributes three answers.
   One third of pairs come from mental-health or well-being prompts.}
 \place{28}{464}{374}{\fs{30}{38}
-  \textbf{Paired-text retrieval.}
-  Qwen3-Embedding-4B [1] ranks all 44,118 candidates in the other
-  language. The paired target or an exact normalized duplicate
+  For \textbf{paired-text retrieval}, Qwen3-Embedding-4B [1]
+  ranks all 44,118 candidates in the other language.
+  The paired target or an \textbf{exact normalized duplicate}
   counts as a correct match. We also tested the 8B encoder.}
 \place{28}{524}{374}{\fs{30}{38}
-  \textbf{Quality estimation.}
-  COMETKiwi DA-XL [2] estimates translation quality from
-  the Portuguese source and English translation.}
+  We estimate \textbf{translation quality} with COMETKiwi DA-XL [2],
+  using the Portuguese source and English translation.}
 \place{28}{568}{374}{\fs{30}{38}
-  \textbf{Language and affective coverage.}
-  Lingua provides language flags. EmoAtlas [3] measures
-  emotion-lexicon coverage in each language.}
+  We use Lingua for \textbf{language flags} and EmoAtlas [3]
+  to measure \textbf{emotion-lexicon coverage} in each language.}
 \place{28}{612}{374}{\color{Muted}\fs{27}{34}
-  Retrieval, quality estimation and coverage are interpreted separately.}
+  Retrieval, quality estimation and coverage are \textbf{interpreted separately}.}
 \place{28}{635}{374}{\input{figures/audit_views.tex}}
 
 \sectiontitle{28}{756}{374}{Interpretation}
 \place{28}{793}{374}{\fs{30}{38}
-  Retrieval measures how distinguishable a paired text is within
+  Retrieval measures \textbf{how distinguishable a paired text is} within
   this corpus. A missed match can reflect brief or repeated wording.
   \par\vspace{7mm}
   COMETKiwi follows a different pattern across response lengths.
   Reporting the measures separately keeps their meanings clear.
-  Bilingual human ratings would calibrate the quality estimates.}
+  \textbf{Bilingual human ratings} would calibrate the quality estimates.}
 
 \sectiontitle{28}{911}{374}{Limitations}
 \place{28}{948}{374}{\fs{30}{38}
-  Results describe one language pair and one workplace-survey
+  Results describe \textbf{one language pair} and one workplace-survey
   setting. Translation provenance is incomplete, and encoder
   comparisons remain within the Qwen3 family.
   \par\vspace{7mm}
   Assessing translation accuracy and emotional or cultural
-  equivalence requires human assessment and validation in
+  equivalence requires \textbf{human assessment and validation} in
   the target domain.}
 \place{28}{1027}{374}{\color{Muted}\fs{25}{32}
-  Survey comments remain confidential.
+  Survey comments remain \textbf{confidential}.
   The public code includes frozen configurations and synthetic tests.}
 
 \sectiontitle{432}{218}{381}{Results}
@@ -156,14 +154,14 @@
   \enspace Portuguese query $\rightarrow$ English candidates}
 \place{433}{357}{380}{\input{figures/length_retrieval.tex}}
 \place{432}{649}{381}{\color{Muted}\fs{25}{32}
-  Error bars show 95\% bootstrap intervals from 2,000 resamples,
+  Error bars show \textbf{95\% bootstrap intervals} from 2,000 resamples,
   clustered by survey-specific record. Every query searches the
   full set of 44,118 candidates.}
 
 \place{432}{726}{381}{\fs{32}{40}\bfseries Quality estimates differ from retrieval}
 \place{433}{757}{380}{\input{figures/quality_length.tex}}
 \place{432}{932}{381}{\color{Muted}\fs{25}{32}
-  COMETKiwi scores are model estimates.
+  COMETKiwi scores are \textbf{model estimates}.
   Calibration against bilingual ratings is needed for this domain.}
 
 \place{432}{979}{381}{\fs{30}{37}\bfseries Responses with zero emotion-lexicon coverage}
