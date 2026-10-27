@@ -1,0 +1,28 @@
+{
+  "checked": "2026-10-27",
+  "assets": [
+    {
+      "file": "gpmh.svg",
+      "url": "https://gpmh.com.br/brand/logos/full-black-cerise-gptw-red-horizontal.svg",
+      "sha256": "fcc88c0513e8565b6fd75766cc73195d84227b0d7e7bda17d3c35d0dbf5f9f43"
+    },
+    {
+      "file": "santa-casa.png",
+      "url": "https://fcmsantacasasp.edu.br/vemprasanta/wp-content/uploads/2025/04/FCMSCSP-Logotipo.png",
+      "sha256": "93771b11965983413705212bdec198dd6119e14c8044a21eaed7d8659bb7ed99"
+    },
+    {
+      "file": "ufpa.pdf",
+      "url": "https://ufpa.br/wp-content/uploads/2023/12/Brasao-UFPA-colorido-com-descritivo.pdf",
+      "sha256": "e9733af1385bb6af1a6eea65054d2fc212a7dde4035847cc6c1c22ea33dbc3af"
+    },
+    {
+      "file": "usp.svg",
+      "source": "Existing USP vector asset in the author-owned GPMH website repository",
+      "guidance": "https://scs.usp.br/identidadevisual/identidade-visual-referencias-de-elementos-visuais/",
+      "sha256": "3d3679daa1afcba9011ae8056d263c2a5e997968d79db87ec682136128fdc7a8",
+      "display_variant": "usp-black.svg uses the standard black monochrome color; original paths and proportions are unchanged.",
+      "display_sha256": "ff0c99206a0f0dfeea0d4449aaf1730e7eea3ee25b9c51b27ae900dd37c7f1b2"
+    }
+  ]
+}

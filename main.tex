@@ -15,6 +15,7 @@
 \definecolor{SeriesB}{HTML}{555555}
 \definecolor{Muted}{HTML}{555555}
 \definecolor{Grid}{HTML}{DADADA}
+\definecolor{PanelBorder}{HTML}{C5CCD8}
 \setbeamercolor{normal text}{fg=Ink,bg=white}
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{headline}{}
@@ -24,7 +25,7 @@
 \hypersetup{
   pdftitle={When Short Responses Are Hard to Distinguish in Translation Audits},
   pdfauthor={João Victor M. Correa; Pedro Shiozawa; Victor Hierro Moraes Ferreira; Emanoel Cristhian Leão Marinho},
-  pdfsubject={MultiPsyche 2026 poster, paper 2},
+  pdfsubject={MultiPsyche 2026 research poster},
   colorlinks=true,urlcolor=Ink
 }
 \newcommand{\fs}[2]{\fontsize{#1}{#2}\selectfont}
@@ -38,6 +39,10 @@
   \draw[NILCBlue,line width=1.2pt]
     ([xshift=#1mm,yshift=-#2mm]current page.north west)
     ++(0,-22mm)--++(#3mm,0);}
+\newcommand{\sectionbox}[4]{%
+  \draw[PanelBorder,line width=1.2pt,rounded corners=3mm]
+    ([xshift=#1mm,yshift=-#2mm]current page.north west)
+    rectangle ([xshift=#3mm,yshift=-#4mm]current page.north west);}
 \newcommand{\paperurl}{https://openreview.net/forum?id=Kq2qqKPOUE}
 \newcommand{\codeurl}{https://github.com/vicmcorrea/cross-lingual-translation-audit}
 
@@ -45,26 +50,39 @@
 \begin{frame}[plain]
 \begin{tikzpicture}[remember picture,overlay]
 
-\place{29}{43}{90}{\includegraphics[width=89mm]{assets/nilc.pdf}}
-\place{724}{46}{89}{\includegraphics[width=89mm]{assets/icmc-usp.pdf}}
-\place{130}{32}{581}{\centering\fs{72}{80}\bfseries
+\sectionbox{18}{207}{412}{344}
+\sectionbox{18}{350}{412}{656}
+\sectionbox{18}{675}{412}{817}
+\sectionbox{18}{825}{412}{1075}
+\sectionbox{422}{207}{823}{1075}
+\sectionbox{18}{1089}{823}{1178}
+
+\place{28}{16}{177}{\centering
+  \includegraphics[width=70mm,height=28mm,keepaspectratio]{assets/usp.pdf}}
+\place{225}{17}{177}{\centering
+  \includegraphics[width=130mm,height=28mm,keepaspectratio]{assets/gpmh.pdf}}
+\place{432}{16}{177}{\centering
+  \includegraphics[width=95mm,height=28mm,keepaspectratio]{assets/santa-casa.png}}
+\place{636}{16}{177}{\centering
+  \includegraphics[width=125mm,height=28mm,keepaspectratio]{assets/ufpa.pdf}}
+\place{28}{57}{785}{\centering\fs{72}{80}\bfseries
   When Short Responses Are Hard\\
   to Distinguish in Translation Audits}
-\place{28}{111}{785}{\centering\fs{28}{35}\bfseries
+\place{28}{132}{785}{\centering\fs{28}{35}\bfseries
   João Victor M. Correa\textsuperscript{1,2}\quad
   Pedro Shiozawa\textsuperscript{3}\quad
   Victor Hierro Moraes Ferreira\textsuperscript{4}\quad
   Emanoel Cristhian Leão Marinho\textsuperscript{4}}
-\place{28}{135}{785}{\centering\fs{24}{31}
+\place{28}{151}{785}{\centering\fs{24}{31}
   \textsuperscript{1}Universidade de São Paulo\qquad
   \textsuperscript{2}Great People Mental Health\\
   \textsuperscript{3}Faculdade de Ciências Médicas da Santa Casa de São Paulo\qquad
   \textsuperscript{4}Universidade Federal do Pará}
-\place{28}{169}{785}{\centering\color{Muted}\fs{24}{30}
-  MultiPsyche 2026 \enspace | \enspace AACL-IJCNLP 2026 \enspace | \enspace Paper 2}
+\place{28}{183}{785}{\centering\color{Muted}\fs{24}{30}
+  MultiPsyche 2026 \enspace | \enspace AACL-IJCNLP 2026}
 \draw[NILCBlue,line width=2.4pt]
-  ([xshift=28mm,yshift=-190mm]current page.north west) --
-  ([xshift=813mm,yshift=-190mm]current page.north west);
+  ([xshift=28mm,yshift=-201mm]current page.north west) --
+  ([xshift=813mm,yshift=-201mm]current page.north west);
 
 \sectiontitle{28}{218}{374}{Introduction}
 \place{28}{253}{374}{\fs{30}{38}
@@ -151,9 +169,6 @@
 \place{432}{1050}{381}{\color{Muted}\fs{25}{32}
   Zero coverage limits lexical comparisons across languages.}
 
-\draw[Grid,line width=1.2pt]
-  ([xshift=28mm,yshift=-1089mm]current page.north west) --
-  ([xshift=813mm,yshift=-1089mm]current page.north west);
 \place{28}{1102}{562}{\color{NILCBlue}\fs{29}{36}\bfseries Selected references}
 \place{28}{1121}{562}{\fs{21}{27}
   [1] Zhang et al. (2025).

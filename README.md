@@ -34,9 +34,10 @@ PGFPlots and TikZ source files in figures/.
 ## Design
 
 The poster uses a conventional two-column academic layout with a centered title,
-serif typography and section rules. The white background, NILC blue and
-institutional marks follow the author's qualification slides. Asset provenance
-is recorded in assets/README.md.
+serif typography and light section borders. The header shows USP, Great People
+Mental Health, Santa Casa and UFPA marks. Asset provenance is recorded in
+assets/README.md. The requirements and source checks are in
+SUBMISSION_REQUIREMENTS.md.
 
 The [conference instructions](https://docs.google.com/presentation/d/1nAezbzgckj3WKgncHUN0pqZW-jNv7yOg_EiBU8-_ia4/edit)
 were checked on 27 October 2026. The workshop's email gives 28 October 2026 as
