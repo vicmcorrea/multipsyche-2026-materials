@@ -1,0 +1,82 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{speaker-notes}[2026/10/27 Embedded template speaker notes]
+\RequirePackage[overridenote]{pdfpc}
+% Annotation implementation from the reference deck, revision
+% 3133c86e7ed15a2366b0c37c1b09a3e43d37a0df, main.tex.
+\newsavebox{\speakerNoteIcon}
+\sbox{\speakerNoteIcon}{%
+    \begin{tikzpicture}[x=1pt,y=1pt]
+        \path[use as bounding box] (0,0) rectangle (8,8);
+        \path[fill=yellow!80!orange,draw=orange!70!black,line width=0.3pt]
+            (0.5,0.5) -- (7.5,0.5) -- (7.5,5.5) -- (5.5,7.5) -- (0.5,7.5) -- cycle;
+        \path[fill=yellow!30,draw=orange!70!black,line width=0.3pt]
+            (5.5,7.5) -- (5.5,5.5) -- (7.5,5.5);
+        \draw[black!55,line width=0.35pt] (1.8,4.7)--(4.7,4.7)
+            (1.8,3.3)--(6.2,3.3) (1.8,1.9)--(6.2,1.9);
+    \end{tikzpicture}%
+}
+\immediate\pdfxform\speakerNoteIcon
+\edef\speakerNoteAppearance{\the\pdflastxform\space 0 R}
+\newcommand{\currentSpeakerNote}{}
+\newcommand{\currentSpeakerNoteRich}{}
+% PDF.js parses rich-text strings as XML bytes. ASCII entities keep accents
+% portable, and LF separators keep its rich/plain text equality check intact.
+\ExplSyntaxOn
+\cs_generate_variant:Nn \tl_replace_all:Nnn { Nxx }
+\NewDocumentCommand{\speakerNoteEntity}{mm}{
+    \tl_replace_all:Nxx \encodedSpeakerNoteRich
+        {\tl_to_str:n{#1}}
+        {\char_generate:nn{38}{12}\char_generate:nn{35}{12}#2;}
+}
+\ExplSyntaxOff
+\renewcommand<>{\pdfpcnote}[1]{%
+    \only#2{%
+        \begingroup
+        \pdfstringdefDisableCommands{\def\\{\textLF}}%
+        \pdfstringdef\encodedSpeakerNote{#1}%
+        \global\let\currentSpeakerNote\encodedSpeakerNote
+        \hypersetup{unicode=false}%
+        \pdfstringdefDisableCommands{\def\\{</p><p style="color:rgb(24,24,24)">}}%
+        \pdfstringdef\encodedSpeakerNoteRich{<body xmlns="http://www.w3.org/1999/xhtml"><p style="color:rgb(24,24,24)">#1</p></body>}%
+        \speakerNoteEntity{à}{224}\speakerNoteEntity{á}{225}%
+        \speakerNoteEntity{â}{226}\speakerNoteEntity{ã}{227}%
+        \speakerNoteEntity{ç}{231}\speakerNoteEntity{é}{233}%
+        \speakerNoteEntity{ê}{234}\speakerNoteEntity{í}{237}%
+        \speakerNoteEntity{ó}{243}\speakerNoteEntity{ô}{244}%
+        \speakerNoteEntity{õ}{245}\speakerNoteEntity{ú}{250}%
+        \speakerNoteEntity{À}{192}\speakerNoteEntity{Á}{193}%
+        \speakerNoteEntity{Â}{194}\speakerNoteEntity{Ã}{195}%
+        \speakerNoteEntity{Ç}{199}\speakerNoteEntity{É}{201}%
+        \speakerNoteEntity{Ê}{202}\speakerNoteEntity{Í}{205}%
+        \speakerNoteEntity{Ó}{211}\speakerNoteEntity{Ô}{212}%
+        \speakerNoteEntity{Õ}{213}\speakerNoteEntity{Ú}{218}%
+        \global\let\currentSpeakerNoteRich\encodedSpeakerNoteRich
+        \endgroup
+    }%
+}
+\AddToHook{shipout/foreground}{%
+    \ifx\currentSpeakerNote\empty\else
+        \put(0,0){%
+            \raisebox{-9pt}[0pt][0pt]{%
+                \makebox[\paperwidth][c]{%
+                    \makebox[8pt][l]{%
+                    \pdfannot width 8pt height 8pt depth 0pt {%
+                        /Subtype /Text%
+                        /Name /Note%
+                        /C [1 0.85 0]%
+                        /Open false%
+                        /AP << /N \speakerNoteAppearance >>%
+                        /T (Speaker notes)%
+                        /Contents (\currentSpeakerNote)%
+                        /RC (\currentSpeakerNoteRich)%
+                        /DS (font:10pt Helvetica;color:black)%
+                        /DA (/Helv 10 Tf 0.094 0.094 0.094 rg)%
+                        /F 0%
+                    }%
+                    }%
+                }%
+            }%
+        }%
+    \fi
+    \global\let\currentSpeakerNote\empty
+}

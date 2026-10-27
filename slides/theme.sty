@@ -34,14 +34,6 @@
 \setbeamertemplate{footline}{}
 \renewcommand{\appendixname}{Appendix}
 \DeclareRobustCommand{\fs}[2]{\fontsize{#1}{#2}\selectfont\ignorespaces}
-\setbeamertemplate{note page}{%
-  \vspace*{0.35cm}%
-  {\fs{9}{11}\insertshorttitle\par}
-  \vspace{0.18cm}
-  {\color{SlideBlue}\fs{12}{15}\bfseries\insertframetitle\par}
-  \vspace{0.18cm}\hrule\vspace{0.18cm}
-  \setbeamerfont{itemize/enumerate body}{size=\fs{9.5}{12}}%
-  {\fs{9.5}{12}\insertnote}}
 \newcommand{\sput}[4]{%
   \node[anchor=north west,inner sep=0pt,outer sep=0pt,
     align=left,text width=#3cm]
@@ -60,8 +52,6 @@
   \sput{0.6}{7.68}{14.8}{\centering\fs{12}{15}\bfseries #1}}
 \newcommand{\source}[1]{%
   \sput{0.55}{8.63}{14.2}{\color{MidGray}\fs{6.5}{8}#1}}
-\newcommand{\talknote}[2]{%
-  \note{\textbf{#1}\par\medskip #2}}
 \newcommand{\codeurl}{https://github.com/vicmcorrea/cross-lingual-translation-audit}
 \newcommand{\logoband}{%
   \fill[white] (current page.north west)
