@@ -1,0 +1,23 @@
+\begin{tikzpicture}[
+  x=1mm,y=1mm,
+  auditbox/.style={anchor=center,draw=PanelBorder,line width=1.2pt,
+    rounded corners=2mm,align=center,inner sep=2mm,
+    font=\fs{25}{31},text=Ink},
+  auditlink/.style={-{Latex[length=3mm,width=2mm]},
+    draw=Muted,line width=1.5pt},
+]
+\path[use as bounding box] (0,0) rectangle (374,84);
+\node[auditbox,text width=264mm,minimum height=22mm]
+  (pairs) at (187,70) {Portuguese--English response pairs};
+\node[auditbox,text width=108mm,minimum height=31mm]
+  (retrieval) at (60,16) {Paired-text\\retrieval};
+\node[auditbox,text width=108mm,minimum height=31mm]
+  (quality) at (187,16) {Quality\\estimation};
+\node[auditbox,text width=108mm,minimum height=31mm]
+  (coverage) at (314,16) {Language and\\lexical coverage};
+\coordinate (branch) at (187,45);
+\draw[draw=Muted,line width=1.5pt] (pairs.south) -- (branch);
+\draw[auditlink] (branch) -| (retrieval.north);
+\draw[auditlink] (branch) -- (quality.north);
+\draw[auditlink] (branch) -| (coverage.north);
+\end{tikzpicture}

@@ -7,7 +7,7 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 \usepackage{qrcode}
-\usetikzlibrary{calc}
+\usetikzlibrary{arrows.meta,calc}
 \pgfplotsset{compat=1.18}
 \definecolor{Ink}{HTML}{222222}
 \definecolor{NILCBlue}{HTML}{3331B4}
@@ -51,9 +51,9 @@
 \begin{tikzpicture}[remember picture,overlay]
 
 \sectionbox{18}{207}{412}{344}
-\sectionbox{18}{350}{412}{656}
-\sectionbox{18}{675}{412}{817}
-\sectionbox{18}{825}{412}{1075}
+\sectionbox{18}{350}{412}{735}
+\sectionbox{18}{748}{412}{890}
+\sectionbox{18}{903}{412}{1075}
 \sectionbox{422}{207}{823}{1075}
 \sectionbox{18}{1089}{823}{1178}
 
@@ -118,9 +118,10 @@
   emotion-lexicon coverage in each language.}
 \place{28}{612}{374}{\color{Muted}\fs{27}{34}
   Retrieval, quality estimation and coverage are interpreted separately.}
+\place{28}{635}{374}{\input{figures/audit_views.tex}}
 
-\sectiontitle{28}{688}{374}{Interpretation}
-\place{28}{725}{374}{\fs{30}{38}
+\sectiontitle{28}{756}{374}{Interpretation}
+\place{28}{793}{374}{\fs{30}{38}
   Retrieval measures how distinguishable a paired text is within
   this corpus. A missed match can reflect brief or repeated wording.
   \par\vspace{7mm}
@@ -128,8 +129,8 @@
   Reporting the measures separately keeps their meanings clear.
   Bilingual human ratings would calibrate the quality estimates.}
 
-\sectiontitle{28}{833}{374}{Limitations}
-\place{28}{870}{374}{\fs{30}{38}
+\sectiontitle{28}{911}{374}{Limitations}
+\place{28}{948}{374}{\fs{30}{38}
   Results describe one language pair and one workplace-survey
   setting. Translation provenance is incomplete, and encoder
   comparisons remain within the Qwen3 family.
@@ -137,7 +138,7 @@
   Assessing translation accuracy and emotional or cultural
   equivalence requires human assessment and validation in
   the target domain.}
-\place{28}{1001}{374}{\color{Muted}\fs{25}{32}
+\place{28}{1027}{374}{\color{Muted}\fs{25}{32}
   Survey comments remain confidential.
   The public code includes frozen configurations and synthetic tests.}
 
