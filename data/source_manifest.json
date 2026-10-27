@@ -1,0 +1,27 @@
+{
+  "source": "../paper.tex",
+  "source_files_sha256": {
+    "paper.tex": "c8a5e61bf0f2644e332b9af2448945627b3291b0650513ee8f4b9d63fc1d980d",
+    "authors_camera_ready.tex": "b3d7477e99f4f6ea43f763088eed64719421357932254cb4f969cbb24bcfeb7b",
+    "appendix.tex": "07f1d0ff818c91e54bb95509f13bd0a879199e91b28deb0f2d3f493a4c11b784",
+    "main_final.pdf": "9208ebded9701706aa46febbf27012f601b9c0c0dfe6a9d00a7a9e47173ec9ed"
+  },
+  "retrieval": {
+    "unit": "percent",
+    "directions": [
+      "English query to Portuguese candidates",
+      "Portuguese query to English candidates"
+    ],
+    "interval": "95% percentile bootstrap, clustered by survey-specific record",
+    "resamples": 2000,
+    "candidate_count": 44118
+  },
+  "quality": {
+    "measure": "mean COMETKiwi",
+    "unit": "model score"
+  },
+  "coverage": {
+    "measure": "responses with zero emotion-lexicon coverage",
+    "unit": "percent"
+  }
+}

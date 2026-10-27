@@ -1,0 +1,161 @@
+\documentclass[final]{beamer}
+\usepackage[size=custom,width=84.1,height=118.9,scale=1.0]{beamerposter}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{tgheros}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{qrcode}
+\usetikzlibrary{calc}
+\pgfplotsset{compat=1.18}
+\definecolor{Ink}{HTML}{142C3A}
+\definecolor{Teal}{HTML}{00685E}
+\definecolor{Blue}{HTML}{3C5274}
+\definecolor{Muted}{HTML}{526572}
+\definecolor{Grid}{HTML}{D8E2E6}
+\definecolor{Wash}{HTML}{EFF6F5}
+\definecolor{Pale}{HTML}{F3F6F8}
+\setbeamercolor{normal text}{fg=Ink,bg=white}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}{}
+\setbeamertemplate{footline}{}
+\setbeamersize{text margin left=0pt,text margin right=0pt}
+\title{When Short Responses Are Hard to Distinguish in Translation Audits}
+\hypersetup{
+  pdftitle={When Short Responses Are Hard to Distinguish in Translation Audits},
+  pdfauthor={João Victor M. Correa; Pedro Shiozawa; Victor Hierro Moraes Ferreira; Emanoel Cristhian Leão Marinho},
+  pdfsubject={MultiPsyche 2026 poster, paper 2},
+  colorlinks=true,urlcolor=Teal
+}
+\newcommand{\fs}[2]{\fontsize{#1}{#2}\selectfont}
+\newcommand{\place}[4]{%
+  \node[anchor=north west,inner sep=0pt,outer sep=0pt,
+        align=left,text width=#3mm]
+    at ([xshift=#1mm,yshift=-#2mm]current page.north west)
+    {\raggedright\hyphenpenalty=10000\exhyphenpenalty=10000 #4\par};}
+\newcommand{\panel}[5]{%
+  \fill[#5,rounded corners=2mm]
+    ([xshift=#1mm,yshift=-#2mm]current page.north west)
+    rectangle ([xshift=#3mm,yshift=-#4mm]current page.north west);}
+\newcommand{\paperurl}{https://openreview.net/forum?id=Kq2qqKPOUE}
+\newcommand{\codeurl}{https://github.com/vicmcorrea/cross-lingual-translation-audit}
+
+\begin{document}
+\begin{frame}[plain]
+\begin{tikzpicture}[remember picture,overlay]
+\panel{0}{0}{841}{190}{Ink}
+
+\place{28}{22}{785}{\color{white}\fs{25}{30}%
+  MultiPsyche 2026 \hfill AACL-IJCNLP 2026 \enspace | \enspace Paper 2}
+\place{28}{47}{785}{\color{white}\fs{88}{97}\bfseries
+  When Short Responses Are Hard\\
+  to Distinguish in Translation Audits}
+\place{28}{128}{785}{\color{white}\fs{29}{37}\bfseries
+  João Victor M. Correa\textsuperscript{1,2}\quad
+  Pedro Shiozawa\textsuperscript{3}\quad
+  Victor Hierro Moraes Ferreira\textsuperscript{4}\quad
+  Emanoel Cristhian Leão Marinho\textsuperscript{4}}
+\place{28}{151}{785}{\color{white}\fs{24}{31}%
+  \textsuperscript{1}Universidade de São Paulo\qquad
+  \textsuperscript{2}Great People Mental Health\\
+  \textsuperscript{3}Faculdade de Ciências Médicas da Santa Casa de São Paulo\qquad
+  \textsuperscript{4}Universidade Federal do Pará}
+
+\place{28}{209}{785}{\color{Teal}\fs{24}{29}\bfseries Main finding}
+\place{28}{225}{785}{\fs{48}{57}\bfseries
+  Short responses offer fewer clues for retrieval.\\
+  Translation quality requires separate evidence.}
+
+\panel{28}{286}{813}{353}{Wash}
+\place{43}{297}{240}{\color{Teal}\fs{65}{72}\bfseries 44,118}
+\place{43}{326}{240}{\fs{27}{32}Portuguese-English pairs}
+\place{312}{297}{245}{\color{Teal}\fs{65}{72}\bfseries 14,706}
+\place{312}{326}{245}{\fs{27}{32}Survey-specific records}
+\place{589}{297}{205}{\color{Teal}\fs{65}{72}\bfseries 4}
+\place{589}{326}{205}{\fs{27}{32}Workplace surveys}
+
+\place{28}{377}{500}{\fs{43}{51}\bfseries Retrieval rises with response length}
+\place{28}{402}{500}{\fs{27}{34}%
+  Rank-one recovery finds the paired text or an exact normalized
+  duplicate in the first position.}
+\place{28}{440}{500}{\color{Teal}\fs{26}{32}%
+  \tikz[baseline=-0.5ex]{\draw[Teal,line width=2.2pt] (0,0)--(12mm,0);
+    \fill[Teal] (6mm,0) circle (1.4mm);}
+  \enspace English query $\rightarrow$ Portuguese candidates}
+\place{28}{455}{500}{\color{Blue}\fs{26}{32}%
+  \tikz[baseline=-0.5ex]{\draw[Blue,line width=2.2pt,dashed] (0,0)--(12mm,0);
+    \fill[Blue] (4.8mm,-1.2mm) rectangle (7.2mm,1.2mm);}
+  \enspace Portuguese query $\rightarrow$ English candidates}
+\place{29}{479}{500}{\input{figures/length_retrieval.tex}}
+\place{28}{752}{500}{\color{Muted}\fs{24}{30}%
+  Error bars show 95\% bootstrap intervals from 2,000 resamples,
+  clustered by survey-specific record. All queries search the
+  full set of 44,118 candidates.}
+
+\place{28}{810}{500}{\fs{40}{48}\bfseries Quality estimates follow a different pattern}
+\place{29}{844}{500}{\input{figures/quality_length.tex}}
+\place{28}{1010}{500}{\color{Muted}\fs{24}{30}%
+  COMETKiwi estimates learned translation quality.
+  Human ratings would calibrate these scores for short survey text.}
+
+\place{556}{377}{257}{\fs{43}{51}\bfseries Study and audit}
+\place{556}{405}{257}{\fs{27}{34}%
+  Archived translations from Brazilian workplace surveys.
+  One third of pairs come from mental-health or well-being prompts.
+  Each record contributes three answers.}
+
+\panel{556}{481}{813}{541}{Pale}
+\place{568}{489}{232}{\color{Teal}\fs{31}{37}\bfseries Retrieval}
+\place{568}{510}{232}{\fs{25}{31}%
+  Qwen3-Embedding-4B\\
+  8B model-scale sensitivity}
+
+\panel{556}{553}{813}{613}{Pale}
+\place{568}{561}{232}{\color{Teal}\fs{31}{37}\bfseries Quality estimation}
+\place{568}{582}{232}{\fs{25}{31}%
+  COMETKiwi DA-XL\\
+  Source + translation}
+
+\panel{556}{625}{813}{685}{Pale}
+\place{568}{633}{232}{\color{Teal}\fs{31}{37}\bfseries Language and coverage}
+\place{568}{654}{232}{\fs{25}{31}%
+  Lingua + EmoAtlas\\
+  Language labels and emotion lexicons}
+
+\place{556}{716}{257}{\fs{40}{48}\bfseries Emotion-lexicon\\coverage has gaps}
+\place{556}{765}{257}{\color{Muted}\fs{25}{31}%
+  Share of responses with zero\\emotion-lexicon coverage}
+\input{figures/emotion_coverage.tex}
+\place{556}{908}{257}{\fs{26}{33}%
+  Zero coverage limits lexical comparison.
+  Assessing emotional meaning requires separate human evaluation.}
+
+\draw[Grid,line width=1.8pt]
+  ([xshift=28mm,yshift=-1044mm]current page.north west) --
+  ([xshift=813mm,yshift=-1044mm]current page.north west);
+\place{28}{1063}{580}{\color{Teal}\fs{36}{44}\bfseries Interpret each measure on its own}
+\place{28}{1087}{580}{\fs{26}{33}%
+  Report length, repetition and coverage alongside scores.
+  Bilingual human review is needed to assess translation accuracy
+  and emotional or cultural equivalence.}
+\place{28}{1128}{580}{\color{Muted}\fs{23}{29}%
+  Evidence comes from automated criteria in one setting and language pair.
+  Translation provenance is incomplete. Survey comments remain confidential.}
+
+\place{662}{1059}{65}{\fs{26}{32}\bfseries Paper}
+\place{662}{1078}{65}{\qrcode[height=45mm]{\paperurl}}
+\place{754}{1059}{65}{\fs{26}{32}\bfseries Code}
+\place{754}{1078}{65}{\qrcode[height=45mm]{\codeurl}}
+\place{662}{1131}{151}{\color{Muted}\fs{21}{27}%
+  Paper, code and synthetic tests\\
+  \href{mailto:victormcorrea@usp.br}{victormcorrea@usp.br}}
+
+\place{28}{1162}{785}{\color{Muted}\fs{18}{23}%
+  Methods\enspace
+  \href{https://arxiv.org/abs/2506.05176}{Zhang et al., 2025, Qwen3 Embedding}\enspace|\enspace
+  \href{https://aclanthology.org/2022.wmt-1.60/}{Rei et al., 2022}
+  \href{https://aclanthology.org/2023.wmt-1.73/}{and 2023, COMETKiwi}\enspace|\enspace
+  \href{https://doi.org/10.3758/s13428-024-02553-7}{Semeraro et al., 2025, EmoAtlas}}
+\end{tikzpicture}
+\end{frame}
+\end{document}

@@ -1,0 +1,40 @@
+\begin{tikzpicture}
+\begin{axis}[
+  width=484mm,height=238mm,
+  xmin=-0.15,xmax=3.15,ymin=0,ymax=105,
+  xtick={0,1,2,3},xticklabels={1-2,3-5,6-20,21+},
+  ytick={0,20,40,60,80,100},
+  xlabel={Source response length (Portuguese words)},
+  ylabel={Rank-one recovery (\%)},
+  tick label style={font=\fs{28}{34},text=Ink},
+  label style={font=\fs{28}{34},text=Ink},
+  xlabel style={yshift=-4mm},ylabel style={yshift=-2mm},
+  axis lines=left,axis line style={Muted,line width=1.2pt},
+  tick style={Muted,line width=1.2pt},
+  ymajorgrids=true,grid style={Grid,line width=0.8pt},
+  clip=false,
+]
+\addplot[
+  Teal,line width=3.2pt,mark=*,mark size=5.5pt,
+  error bars/.cd,y dir=both,y explicit,
+  error bar style={line width=1.8pt},
+  error mark options={rotate=90,mark size=5pt,line width=1.8pt},
+] table[x=x,y=en_pt,y error minus=en_pt_minus,y error plus=en_pt_plus,
+        col sep=tab] {data/length_results.tsv};
+\addplot[
+  Blue,line width=3.2pt,dashed,mark=square*,mark size=5pt,
+  error bars/.cd,y dir=both,y explicit,
+  error bar style={line width=1.8pt},
+  error mark options={rotate=90,mark size=5pt,line width=1.8pt},
+] table[x=x,y=pt_en,y error minus=pt_en_minus,y error plus=pt_en_plus,
+        col sep=tab] {data/length_results.tsv};
+\node[anchor=west,text=Teal,font=\fs{29}{35}\bfseries]
+  at (axis cs:0.08,5) {8.4\%};
+\node[anchor=west,text=Blue,font=\fs{29}{35}\bfseries]
+  at (axis cs:0.08,17) {13.0\%};
+\node[anchor=east,text=Teal,font=\fs{29}{35}\bfseries]
+  at (axis cs:2.92,104) {99.1\%};
+\node[anchor=east,text=Blue,font=\fs{29}{35}\bfseries]
+  at (axis cs:2.92,91.5) {98.5\%};
+\end{axis}
+\end{tikzpicture}
