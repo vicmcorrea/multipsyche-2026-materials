@@ -1,0 +1,101 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{theme}[2026/10/27 MultiPsyche presentation theme]
+% Design adapted from vicmcorrea/slidesThesisSemanticDriftQualification,
+% revision 3133c86e7ed15a2366b0c37c1b09a3e43d37a0df,
+% main.tex and includes/titleframe5.tex. White content slides, centered blue
+% headings, a blue rule, sans-serif text and blue opening/closing slides.
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{lmodern}
+\RequirePackage{graphicx}
+\RequirePackage{tikz}
+\RequirePackage{pgfplots}
+\RequirePackage{pgfplotstable}
+\RequirePackage{booktabs}
+\RequirePackage{array}
+\RequirePackage{qrcode}
+\RequirePackage{appendixnumberbeamer}
+\usetikzlibrary{arrows.meta,calc,positioning,fit}
+\pgfplotsset{compat=1.18}
+\usetheme{Warsaw}
+\useinnertheme{rounded}
+\definecolor{SlideBlue}{HTML}{3331B4}
+\definecolor{TitleBlue}{RGB}{50,50,255}
+\definecolor{SoftBlue}{HTML}{EEF1FA}
+\definecolor{MidGray}{HTML}{666666}
+\definecolor{Ink}{HTML}{222222}
+\definecolor{Grid}{HTML}{DADADA}
+\definecolor{PanelBorder}{HTML}{BFC5E3}
+\setbeamercolor{normal text}{fg=Ink,bg=white}
+\setbeamercolor{structure}{fg=SlideBlue}
+\setbeamersize{text margin left=0.5cm,text margin right=0.5cm}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}{}
+\setbeamertemplate{footline}{}
+\renewcommand{\appendixname}{Appendix}
+\DeclareRobustCommand{\fs}[2]{\fontsize{#1}{#2}\selectfont}
+\setbeamertemplate{note page}{%
+  \vspace*{0.35cm}%
+  {\fs{9}{11}\insertshorttitle\par}
+  \vspace{0.18cm}
+  {\color{SlideBlue}\fs{12}{15}\bfseries\insertframetitle\par}
+  \vspace{0.18cm}\hrule\vspace{0.18cm}
+  \setbeamerfont{itemize/enumerate body}{size=\fs{9.5}{12}}%
+  {\fs{9.5}{12}\insertnote}}
+\newcommand{\sput}[4]{%
+  \node[anchor=north west,inner sep=0pt,outer sep=0pt,
+    align=left,text width=#3cm]
+    at ([xshift=#1cm,yshift=-#2cm]current page.north west)
+    {\raggedright\hyphenpenalty=10000\exhyphenpenalty=10000 #4\par};}
+\newcommand{\takeaway}[1]{%
+  \sput{0.6}{7.68}{14.8}{\centering\fs{12}{15}\bfseries #1}}
+\newcommand{\source}[1]{%
+  \sput{0.55}{8.63}{14.2}{\color{MidGray}\fs{6.5}{8}#1}}
+\newcommand{\talknote}[2]{%
+  \note{\textbf{#1}\par\medskip #2}}
+\newcommand{\codeurl}{https://github.com/vicmcorrea/cross-lingual-translation-audit}
+\newcommand{\logoband}{%
+  \fill[white] (current page.north west)
+    rectangle ([yshift=-1.10cm]current page.north east);
+  \node[anchor=center,inner sep=0pt] at ([xshift=1.90cm,yshift=-0.53cm]current page.north west)
+    {\includegraphics[width=2.8cm,height=0.74cm,keepaspectratio]{../shared/logos/aacl-2026.pdf}};
+  \node[anchor=center,inner sep=0pt] at ([xshift=5.10cm,yshift=-0.53cm]current page.north west)
+    {\includegraphics[width=1.05cm,height=0.6cm,keepaspectratio]{../shared/logos/usp.pdf}};
+  \node[anchor=center,inner sep=0pt] at ([xshift=8.10cm,yshift=-0.53cm]current page.north west)
+    {\includegraphics[width=1.65cm,height=0.6cm,keepaspectratio]{../shared/logos/gpmh.pdf}};
+  \node[anchor=center,inner sep=0pt] at ([xshift=11.05cm,yshift=-0.53cm]current page.north west)
+    {\includegraphics[width=1.9cm,height=0.6cm,keepaspectratio]{../shared/logos/santa-casa.png}};
+  \node[anchor=center,inner sep=0pt] at ([xshift=14.05cm,yshift=-0.53cm]current page.north west)
+    {\includegraphics[width=1.8cm,height=0.65cm,keepaspectratio]{../shared/logos/ufpa.pdf}};}
+\setbeamertemplate{frametitle}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=center,align=center,text width=12.3cm,inner sep=0pt,
+      text=TitleBlue,font=\fs{14.4}{16}\bfseries]
+      at ([yshift=-0.62cm]current page.north) {\insertframetitle};
+    \node[anchor=center,inner sep=0pt]
+      at ([xshift=0.85cm,yshift=-0.57cm]current page.north west)
+      {\includegraphics[width=0.95cm]{../shared/logos/usp.pdf}};
+    \node[anchor=center,inner sep=0pt]
+      at ([xshift=-0.95cm,yshift=-0.57cm]current page.north east)
+      {\includegraphics[width=1.45cm,height=0.7cm,keepaspectratio]{../shared/logos/aacl-2026.pdf}};
+    \draw[line width=0.085cm,color=TitleBlue]
+      ([xshift=0.30cm,yshift=-1.10cm]current page.north west) --
+      ([xshift=-0.30cm,yshift=-1.10cm]current page.north east);
+  \end{tikzpicture}
+  \vspace{0.645cm}}
+\tikzset{
+  auditnode/.style={anchor=center,draw=PanelBorder,fill=SoftBlue,
+    rounded corners=2pt,line width=0.7pt,align=center,inner sep=6pt,
+    text=Ink,font=\fs{11}{14}},
+  auditline/.style={-{Latex[length=2.0mm]},line width=0.8pt,draw=MidGray},
+  plainlabel/.style={anchor=center,align=center,text=Ink,font=\fs{11}{14}},
+}
+\pgfplotsset{
+  slideaxis/.style={
+    tick label style={font=\fs{9.5}{12},text=Ink},
+    label style={font=\fs{10}{12},text=Ink},
+    axis lines=left,axis line style={MidGray,line width=0.6pt},
+    tick style={MidGray},ymajorgrids=true,grid style={Grid,line width=0.3pt},
+    clip=false,
+  }
+}

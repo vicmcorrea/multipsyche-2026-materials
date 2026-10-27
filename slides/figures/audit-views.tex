@@ -1,0 +1,22 @@
+\begin{tikzpicture}[text width=,anchor=center]
+\path[use as bounding box] (0,0) rectangle (14.6,5.3);
+\node[auditnode,text width=2.2cm,minimum height=1.4cm] (pairs) at (1.6,2.65)
+  {\textbf{Paired}\\responses};
+\node[auditnode,text width=3.7cm,minimum height=1.05cm] (retrieval) at (6.4,4.35)
+  {\textbf{Paired-text retrieval}\\{\fs{9}{12}Qwen3-Embedding-4B}};
+\node[auditnode,text width=3.7cm,minimum height=1.05cm] (quality) at (6.4,2.65)
+  {\textbf{Quality estimation}\\{\fs{9}{12}COMETKiwi DA-XL}};
+\node[auditnode,text width=3.7cm,minimum height=1.05cm] (coverage) at (6.4,0.95)
+  {\textbf{Coverage diagnostics}\\{\fs{9}{12}Lingua and EmoAtlas}};
+\coordinate (branch) at (3.55,2.65);
+\draw[MidGray,line width=0.8pt] (pairs.east) -- (branch);
+\draw[auditline] (branch) |- (retrieval.west);
+\draw[auditline] (branch) -- (quality.west);
+\draw[auditline] (branch) |- (coverage.west);
+\node[plainlabel,text width=4.5cm] at (11.7,4.35)
+  {Can the paired text be recovered?};
+\node[plainlabel,text width=4.5cm] at (11.7,2.65)
+  {What quality does the model estimate?};
+\node[plainlabel,text width=4.5cm] at (11.7,0.95)
+  {Which language and emotion terms are recognized?};
+\end{tikzpicture}

@@ -1,0 +1,17 @@
+\begin{tikzpicture}[text width=,anchor=center]
+\path[use as bounding box] (0,0) rectangle (14.5,5.3);
+\node[plainlabel,anchor=west,text=SlideBlue,font=\fs{12}{15}\bfseries]
+  at (0.3,4.75) {Study scope};
+\node[plainlabel,anchor=west,align=left,text width=6.5cm,font=\fs{12}{16}]
+  at (0.3,3.45) {Portuguese--English\\Workplace surveys\\Qwen3 4B and 8B encoders};
+\draw[Grid,line width=0.7pt] (0.3,2.3) -- (6.6,2.3);
+\node[plainlabel,anchor=west,align=left,text width=6.5cm]
+  at (0.3,1.55) {Translation provenance is incomplete.\\Response data remain confidential.};
+\node[plainlabel,text=SlideBlue,font=\fs{12}{15}\bfseries]
+  at (10.9,4.75) {Next validation step};
+\node[auditnode,dashed,text width=4.6cm,minimum height=1.0cm]
+  (review) at (10.9,3.45) {\textbf{Bilingual human review}\\across lengths and prompts};
+\node[auditnode,fill=white,text width=4.6cm,minimum height=1.1cm]
+  (meaning) at (10.9,1.25) {Translation quality\\Emotional and cultural meaning};
+\draw[auditline,dashed] (review.south) -- (meaning.north);
+\end{tikzpicture}

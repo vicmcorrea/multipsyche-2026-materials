@@ -20,14 +20,14 @@
   error bar style={line width=1.8pt},
   error mark options={rotate=90,mark size=5pt,line width=1.8pt},
 ] table[x=x,y=en_pt,y error minus=en_pt_minus,y error plus=en_pt_plus,
-        col sep=tab] {data/length_results.tsv};
+        col sep=tab] {../shared/data/length-results.tsv};
 \addplot[
   SeriesB,line width=2.4pt,dashed,mark=square*,mark size=4.7pt,
   error bars/.cd,y dir=both,y explicit,
   error bar style={line width=1.8pt},
   error mark options={rotate=90,mark size=5pt,line width=1.8pt},
 ] table[x=x,y=pt_en,y error minus=pt_en_minus,y error plus=pt_en_plus,
-        col sep=tab] {data/length_results.tsv};
+        col sep=tab] {../shared/data/length-results.tsv};
 \node[anchor=west,text=SeriesA,font=\fs{27}{33}\bfseries]
   at (axis cs:0.08,5) {8.4\%};
 \node[anchor=west,text=SeriesB,font=\fs{27}{33}\bfseries]

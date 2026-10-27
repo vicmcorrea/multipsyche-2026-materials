@@ -1,4 +1,4 @@
-\pgfplotstableread[col sep=tab]{data/emotion_coverage.tsv}\coveragedata
+\pgfplotstableread[col sep=tab]{../shared/data/emotion-coverage.tsv}\coveragedata
 \pgfplotstablegetelem{0}{zero_coverage}\of\coveragedata
 \edef\PortugueseZero{\pgfplotsretval}
 \pgfplotstablegetelem{1}{zero_coverage}\of\coveragedata

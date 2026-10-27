@@ -1,0 +1,30 @@
+\begin{tikzpicture}[text width=,anchor=center]
+\begin{axis}[
+  slideaxis,width=13.6cm,height=5.3cm,
+  xmin=-0.15,xmax=3.15,ymin=0,ymax=110,
+  xtick={0,1,2,3},xticklabels={1--2,3--5,6--20,21+},
+  ytick={0,20,40,60,80,100},
+  xlabel={Portuguese source length in words},ylabel={Rank-one recovery (\%)},
+  legend style={anchor=north west,at={(0.025,0.98)},draw=none,fill=white,
+    font=\fs{9}{12},cells={anchor=west}},
+]
+\addplot[SlideBlue,line width=1.2pt,mark=*,mark size=2.2pt,
+  error bars/.cd,y dir=both,y explicit,
+  error bar style={line width=0.8pt},
+  error mark options={rotate=90,mark size=3pt}]
+  table[x=x,y=en_pt,y error minus=en_pt_minus,y error plus=en_pt_plus,
+    col sep=tab]{../shared/data/length-results.tsv};
+\addlegendentry{English query $\rightarrow$ Portuguese candidates}
+\addplot[MidGray,dashed,line width=1.2pt,mark=square*,mark size=2.0pt,
+  error bars/.cd,y dir=both,y explicit,
+  error bar style={line width=0.8pt},
+  error mark options={rotate=90,mark size=3pt}]
+  table[x=x,y=pt_en,y error minus=pt_en_minus,y error plus=pt_en_plus,
+    col sep=tab]{../shared/data/length-results.tsv};
+\addlegendentry{Portuguese query $\rightarrow$ English candidates}
+\node[anchor=west,font=\fs{10}{12}\bfseries,text=SlideBlue] at (axis cs:0.05,4) {8.4\%};
+\node[anchor=west,font=\fs{10}{12}\bfseries,text=MidGray] at (axis cs:0.05,19) {13.0\%};
+\node[anchor=east,font=\fs{10}{12}\bfseries,text=SlideBlue] at (axis cs:2.96,106) {99.1\%};
+\node[anchor=east,font=\fs{10}{12}\bfseries,text=MidGray] at (axis cs:2.96,91) {98.5\%};
+\end{axis}
+\end{tikzpicture}

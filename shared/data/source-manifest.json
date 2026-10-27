@@ -23,5 +23,9 @@
   "coverage": {
     "measure": "responses with zero emotion-lexicon coverage",
     "unit": "percent"
+  },
+  "additional_slide_tables": {
+    "cohorts.tsv": "Camera-ready article, Table 1",
+    "encoder-sensitivity.tsv": "Camera-ready appendix, selected sensitivity estimates"
   }
 }

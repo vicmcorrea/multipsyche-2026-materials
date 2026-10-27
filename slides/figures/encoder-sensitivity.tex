@@ -1,0 +1,19 @@
+\begin{tikzpicture}[text width=,anchor=center]
+\begin{axis}[
+  slideaxis,width=13cm,height=4.8cm,
+  xmin=-0.5,xmax=1.5,ymin=-3.5,ymax=2.7,
+  xtick={0,1},xticklabels={English query to Portuguese,Portuguese query to English},
+  ytick={-3,-2,-1,0,1,2},ylabel={8B minus 4B R@1 (percentage points)},
+]
+\draw[MidGray,dashed,line width=0.7pt] (axis cs:-0.5,0) -- (axis cs:1.5,0);
+\addplot[SlideBlue,only marks,mark=*,mark size=3.2pt,
+  error bars/.cd,y dir=both,y explicit,
+  error bar style={line width=1pt},error mark options={rotate=90,mark size=5pt}]
+  table[x=x,y=difference,y error minus=minus,y error plus=plus,
+    col sep=tab]{../shared/data/encoder-sensitivity.tsv};
+\node[anchor=north,font=\fs{12}{15}\bfseries,text=SlideBlue]
+  at (axis cs:0,-2.95) {$-2.37$};
+\node[anchor=south,font=\fs{12}{15}\bfseries,text=SlideBlue]
+  at (axis cs:1,1.95) {$+1.47$};
+\end{axis}
+\end{tikzpicture}

@@ -1,0 +1,61 @@
+\begin{frame}[plain]
+\frametitle{Four cohorts, three prompt families}
+\begin{tikzpicture}[remember picture,overlay]
+  \sput{0.9}{1.50}{6.7}{\centering\fs{22}{26}\bfseries\color{SlideBlue}44,118}
+  \sput{0.9}{2.35}{6.7}{\centering\fs{11}{14}Portuguese--English response pairs}
+  \sput{8.4}{1.50}{6.7}{\centering\fs{22}{26}\bfseries\color{SlideBlue}14,706}
+  \sput{8.4}{2.35}{6.7}{\centering\fs{11}{14}survey-specific records}
+  \sput{0.7}{3.10}{14.6}{\input{figures/corpus.tex}}
+  \takeaway{Each retained record contributes one answer to each prompt family.}
+  \source{Camera-ready article, Table 1 and cohort-selection description. Counts represent survey-specific records.}
+\end{tikzpicture}
+\talknote{01:35--02:35, 60 seconds}{
+  \begin{itemize}
+    \item The corpus covers four Brazilian workplace survey cohorts from 2023 to 2025. There are 44,118 response pairs from 14,706 survey-specific records.
+    \item These records describe participation within each survey. A person answering across years cannot be linked across cohorts.
+    \item Every retained record has three answers, one per prompt family. One third of the pairs therefore come from mental-health or well-being prompts, whose wording varies by cohort.
+    \item The chart shows the cohort sizes. The analysis retained short and repeated answers because they are part of the operational setting.
+  \end{itemize}
+  Source: camera-ready article, Table 1 and Appendix A.
+}
+\end{frame}
+
+\begin{frame}[plain]
+\frametitle{Three audit views}
+\begin{tikzpicture}[remember picture,overlay]
+  \sput{0.7}{1.65}{14.6}{\input{figures/audit-views.tex}}
+  \takeaway{Retrieval, quality estimates and coverage are interpreted separately.}
+  \source{Camera-ready article, Figure 2 and Data and Methods. Model references appear on the final backup slide.}
+\end{tikzpicture}
+\talknote{02:35--03:40, 65 seconds}{
+  \begin{itemize}
+    \item All pairs enter three parallel audit views. Read them as separate questions rather than as stages feeding a combined score.
+    \item Qwen3-Embedding-4B tests paired-text recovery. The 8B version provides a model-scale sensitivity check.
+    \item COMETKiwi DA-XL estimates quality from the Portuguese source and English translation, without a human reference translation.
+    \item Lingua supplies language flags, and EmoAtlas supplies language-specific affective-lexicon diagnostics. Coverage helps explain which responses yield a profile.
+  \end{itemize}
+  Source: camera-ready article, Figure 2 and Computational Provenance. Qwen3, COMETKiwi and EmoAtlas references are on the backup reference slide.
+}
+\end{frame}
+
+\begin{frame}[plain]
+\frametitle{What rank-one recovery measures}
+\begin{tikzpicture}[remember picture,overlay]
+  \sput{0.7}{1.55}{14.6}{\input{figures/retrieval-definition.tex}}
+  \sput{0.9}{6.00}{6.7}{\centering\fs{21}{25}\bfseries\color{SlideBlue}71.80\%}
+  \sput{0.9}{6.90}{6.7}{\centering\fs{9.6}{12}English query to Portuguese candidates}
+  \sput{8.4}{6.00}{6.7}{\centering\fs{21}{25}\bfseries\color{MidGray}73.37\%}
+  \sput{8.4}{6.90}{6.7}{\centering\fs{9.6}{12}Portuguese query to English candidates}
+  \takeaway{Every query is ranked against all 44,118 texts in the other language.}
+  \source{Camera-ready article, retrieval definition and Table 2. Percentages are overall duplicate-aware R@1.}
+\end{tikzpicture}
+\talknote{03:40--04:45, 65 seconds}{
+  \begin{itemize}
+    \item A query asks the encoder to find its counterpart among all 44,118 texts in the other language. Queries receive a retrieval instruction, while candidates are encoded without one.
+    \item Rank-one recovery counts a match when the first candidate is the paired target or any candidate with exactly the same normalized target text.
+    \item Semantically similar answers with different normalized wording remain competing candidates. This is a demanding corpus-level identification task.
+    \item The overall rates are 71.80 percent for English queries and 73.37 percent for Portuguese queries. The next slide shows what this average conceals.
+  \end{itemize}
+  Source: camera-ready article, Instruction-Conditioned Paired-Text Retrieval and Table 2. Diagram is schematic and contains no response text.
+}
+\end{frame}

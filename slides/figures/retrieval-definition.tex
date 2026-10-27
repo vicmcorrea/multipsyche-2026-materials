@@ -1,0 +1,17 @@
+\begin{tikzpicture}[text width=,anchor=center]
+\path[use as bounding box] (0,0) rectangle (14.6,4.15);
+\node[auditnode,text width=2.5cm,minimum height=1.05cm] (query) at (1.9,2.85)
+  {Portuguese\\query};
+\node[plainlabel,text=SlideBlue,font=\fs{11}{14}\bfseries] at (9.5,3.85)
+  {Ranked English candidates};
+\node[auditnode,text width=5.7cm,minimum height=0.85cm,draw=SlideBlue]
+  (first) at (9.5,2.85) {\textbf{Paired target or\\exact normalized duplicate}};
+\node[auditnode,text width=5.7cm,minimum height=0.75cm,fill=white]
+  at (9.5,1.50) {Different normalized wording};
+\node[auditnode,text width=5.7cm,minimum height=0.75cm,fill=white]
+  at (9.5,0.35) {Other candidate texts};
+\draw[auditline] (query.east) -- (first.west);
+\node[plainlabel,text=SlideBlue,font=\fs{10}{13}\bfseries] at (5.5,3.45) {Rank 1};
+\node[plainlabel,text=MidGray,font=\fs{10}{13}] at (5.5,1.50) {Rank 2};
+\node[plainlabel,text=MidGray,font=\fs{10}{13}] at (5.5,0.35) {Rank 3};
+\end{tikzpicture}

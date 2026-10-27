@@ -1,0 +1,26 @@
+\begin{tikzpicture}[text width=,anchor=center]
+\begin{axis}[
+  slideaxis,width=13.4cm,height=3.8cm,xbar,bar width=0.8cm,
+  xmin=0,xmax=100,ymin=-0.6,ymax=1.6,y dir=reverse,
+  ytick={0,1},yticklabels={Portuguese,English},
+  xtick={0,25,50,75,100},xlabel={Responses (\%)},
+  ymajorgrids=false,xmajorgrids=true,
+  legend style={at={(0.5,1.22)},anchor=south,legend columns=2,draw=none,
+    font=\fs{9}{12},cells={anchor=west}},
+  bar shift=0pt,
+]
+\addplot[fill=Grid!60,draw=none,forget plot] coordinates {(100,0) (100,1)};
+\addplot[fill=SlideBlue,draw=none,forget plot,
+  nodes near coords={\pgfmathprintnumber[fixed,precision=2,fixed zerofill]{\pgfplotspointmeta}\%},
+  every node near coord/.append style={anchor=east,xshift=-4pt,
+    font=\fs{11}{14}\bfseries,text=white,
+    /pgf/number format/fixed,/pgf/number format/precision=2,
+    /pgf/number format/fixed zerofill}]
+  table[x=zero_coverage,y expr=\coordindex,
+    col sep=tab]{../shared/data/emotion-coverage.tsv};
+\addlegendimage{area legend,fill=SlideBlue,draw=none}
+\addlegendentry{Zero coverage}
+\addlegendimage{area legend,fill=Grid!60,draw=none}
+\addlegendentry{At least one covered emotion term}
+\end{axis}
+\end{tikzpicture}

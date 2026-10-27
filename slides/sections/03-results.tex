@@ -1,0 +1,56 @@
+\begin{frame}[plain]
+\frametitle{Retrieval rises sharply with response length}
+\begin{tikzpicture}[remember picture,overlay]
+  \sput{1.05}{1.55}{14.0}{\input{figures/retrieval-length.tex}}
+  \takeaway{Short responses offer fewer cues for recovering their paired text.}
+  \source{Camera-ready article, Figure 1. 95\% cluster-bootstrap intervals, 2,000 resamples over survey-specific records.}
+\end{tikzpicture}
+\talknote{04:45--06:15, 90 seconds}{
+  \begin{itemize}
+    \item Orient the audience. The horizontal axis uses Portuguese source length, with four prespecified bands. The vertical axis shows correct rank-one recovery.
+    \item Blue is an English query searching Portuguese candidates. Dashed gray is a Portuguese query searching English candidates.
+    \item One- or two-word responses have recovery rates of about 8 to 13 percent. Responses longer than twenty words reach about 98 to 99 percent.
+    \item Error bars are 95 percent cluster-bootstrap intervals from 2,000 resamples. All length groups use the same full candidate corpus.
+    \item This is an association between length and recoverability in this corpus. Bilingual judgments would connect individual misses to translation quality.
+  \end{itemize}
+  Source: camera-ready article, Figure 1.
+}
+\end{frame}
+
+\begin{frame}[plain]
+\frametitle{Quality estimates follow a different pattern}
+\begin{tikzpicture}[remember picture,overlay]
+  \sput{1.05}{1.65}{14.0}{\input{figures/quality-length.tex}}
+  \takeaway{Bilingual human ratings would calibrate these quality estimates.}
+  \source{Camera-ready article, length-stratified COMETKiwi means. COMETKiwi DA-XL, Rei et al., WMT 2023.}
+\end{tikzpicture}
+\talknote{06:15--07:25, 70 seconds}{
+  \begin{itemize}
+    \item This plot keeps the same length bands and shows mean COMETKiwi scores on their model scale.
+    \item The mean is highest for the three-to-five-word group, then falls for the longer groups. Retrieval continued to rise across those groups.
+    \item The disagreement is informative. Retrieval measures distinguishability among candidates, while COMETKiwi estimates quality using learned source--translation relations.
+    \item The study has automated criteria rather than bilingual human ratings. Those ratings would be the next step for calibration in this setting.
+  \end{itemize}
+  Source: camera-ready article, Retrieval Varies Sharply with Response Length and Discussion. Exact means are 0.6414, 0.7798, 0.7526 and 0.7152. Display labels round to three decimals.
+}
+\end{frame}
+
+\begin{frame}[plain]
+\frametitle{Emotion-lexicon coverage}
+\begin{tikzpicture}[remember picture,overlay]
+  \sput{1.3}{1.62}{13.4}{\centering\fs{12}{15}
+    About one quarter of responses have \textbf{zero covered emotion terms}.}
+  \sput{1.0}{2.50}{14.0}{\input{figures/emotion-coverage.tex}}
+  \takeaway{Affective comparisons need explicit reporting of lexical coverage.}
+  \source{Camera-ready article, Language and Affective Coverage. EmoAtlas, Semeraro et al., Behavior Research Methods, 2025.}
+\end{tikzpicture}
+\talknote{07:25--08:25, 60 seconds}{
+  \begin{itemize}
+    \item The blue portion shows responses for which the language-specific lexicon returns zero emotion coverage: 24.67 percent in Portuguese and 23.48 percent in English.
+    \item Zero coverage describes the resource's output. A response can carry meaning or emotion beyond the vocabulary recognized by the lexicon.
+    \item Empty affective profiles affect distance calculations mechanically. The paper therefore also reports comparisons conditional on nonzero profiles in both languages.
+    \item This is a resource-coverage constraint to carry into interpretation, especially when translated text supports mental-health research.
+  \end{itemize}
+  Source: camera-ready article, Language and Affective Coverage. Gray bar segments are the complements of the reported zero-coverage rates.
+}
+\end{frame}

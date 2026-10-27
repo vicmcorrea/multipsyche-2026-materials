@@ -1,0 +1,17 @@
+\begin{tikzpicture}[x=1cm,y=1cm,text width=,anchor=center]
+\path[use as bounding box] (0,0) rectangle (14.6,5.3);
+\node[auditnode,text width=3.15cm,minimum height=1.75cm] (pt) at (2.1,3.6)
+  {\textbf{Portuguese}\\survey answers};
+\node[auditnode,text width=3.15cm,minimum height=1.75cm] (en) at (7.3,3.6)
+  {\textbf{English}\\archived translations};
+\node[auditnode,text width=3.15cm,minimum height=1.75cm] (analysis) at (12.5,3.6)
+  {\textbf{Analysis tools}\\used downstream};
+\draw[auditline] (pt) -- (en);
+\draw[auditline] (en) -- (analysis);
+\draw[Grid,line width=0.7pt] (0.3,2.15) -- (14.3,2.15);
+\node[plainlabel,font=\fs{12}{15}\bfseries,text=SlideBlue] at (2.1,1.45) {Response length};
+\node[plainlabel,font=\fs{12}{15}\bfseries,text=SlideBlue] at (7.3,1.45) {Repeated wording};
+\node[plainlabel,font=\fs{12}{15}\bfseries,text=SlideBlue] at (12.5,1.45) {Lexicon coverage};
+\node[plainlabel,text width=13.4cm,text=MidGray,font=\fs{11}{14}] at (7.3,0.55)
+  {These conditions shape how the audit outputs can be interpreted.};
+\end{tikzpicture}

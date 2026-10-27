@@ -1,0 +1,24 @@
+\begin{tikzpicture}[text width=,anchor=center]
+\path[use as bounding box] (0,0) rectangle (14.6,4.4);
+\begin{axis}[
+  slideaxis,width=7.5cm,height=4.3cm,
+  at={(1.2cm,1.1cm)},anchor=south west,
+  xbar,bar width=0.48cm,xmin=0,xmax=18000,
+  ytick={0,1,2,3},yticklabels={A\quad2023,B\quad2024,C\quad2025,D\quad2025},
+  y dir=reverse,ymin=-0.6,ymax=3.6,
+  xtick={0,5000,10000,15000},xticklabels={0,5{,}000,10{,}000,15{,}000},
+  xlabel={Response pairs},scaled x ticks=false,ymajorgrids=false,xmajorgrids=true,
+  nodes near coords,
+  every node near coord/.append style={font=\fs{9.5}{12},anchor=west,text=Ink,
+    /pgf/number format/fixed,/pgf/number format/precision=0},
+]
+\addplot[fill=SlideBlue!72,draw=none]
+  table[x=pairs,y expr=\coordindex,col sep=tab]{../shared/data/cohorts.tsv};
+\end{axis}
+\node[auditnode,text width=4.1cm,minimum height=1.1cm,inner sep=4pt] at (11.65,3.45)
+  {Positive workplace qualities};
+\node[auditnode,text width=4.1cm,minimum height=1.1cm,inner sep=4pt] at (11.65,2.0)
+  {Areas for improvement};
+\node[auditnode,text width=4.1cm,minimum height=1.1cm,inner sep=4pt] at (11.65,0.55)
+  {Mental health and well-being};
+\end{tikzpicture}

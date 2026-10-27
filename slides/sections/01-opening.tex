@@ -1,0 +1,49 @@
+{
+\ifdefined\SpeakerNotes\else
+  \setbeamercolor{background canvas}{bg=SlideBlue}
+\fi
+\begin{frame}[plain]
+\begin{tikzpicture}[remember picture,overlay]
+  \logoband
+  \sput{1.25}{2.05}{13.5}{\centering\color{white}\fs{20}{25}\bfseries
+    When Short Responses Are Hard\\
+    to Distinguish in Translation Audits}
+  \sput{6.9}{3.62}{2.2}{\color{white!65}\rule{2.2cm}{1.5pt}}
+  \sput{0.8}{4.17}{14.4}{\centering\color{white}\fs{11}{15}
+    João Victor M. Correa\textsuperscript{1,2}\qquad Pedro Shiozawa\textsuperscript{3}\\[3pt]
+    Victor Hierro Moraes Ferreira\textsuperscript{4}\qquad Emanoel Cristhian Leão Marinho\textsuperscript{4}}
+  \sput{0.8}{5.40}{14.4}{\centering\color{white!90}\fs{9.3}{13}
+    \textsuperscript{1}Universidade de São Paulo\qquad \textsuperscript{2}Great People Mental Health\\[3pt]
+    \textsuperscript{3}Faculdade de Ciências Médicas da Santa Casa de São Paulo\\[3pt]
+    \textsuperscript{4}Universidade Federal do Pará}
+  \sput{1}{7.65}{14}{\centering\color{white}\fs{11}{14}
+    MultiPsyche 2026\qquad AACL-IJCNLP 2026}
+\end{tikzpicture}
+\talknote{00:00--00:35, 35 seconds}{
+  \begin{itemize}
+    \item Introduce the paper and coauthors. The study examines archived Portuguese-to-English workplace survey translations.
+    \item The central question is how to interpret automated audit results when many answers are short or repeated.
+    \item Lead into the practical reason for translating these answers into English.
+  \end{itemize}
+  Source: camera-ready article, title and author block. Logos are the official assets shared with the poster.
+}
+\end{frame}
+}
+
+\begin{frame}[plain]
+\frametitle{Translation audits for short survey responses}
+\begin{tikzpicture}[remember picture,overlay]
+  \sput{0.7}{1.75}{14.6}{\input{figures/translation-context.tex}}
+  \takeaway{An audit has to account for the information each answer contains.}
+  \source{Camera-ready article, Introduction and Data and Methods. Diagram summarizes the study setting.}
+\end{tikzpicture}
+\talknote{00:35--01:35, 60 seconds}{
+  \begin{itemize}
+    \item Workplace surveys collect open answers about strengths, improvements and well-being. Translation makes these answers accessible to English-centered analysis tools.
+    \item Brief answers can be reasonable translations while offering very little distinctive information. Repetition adds to the ambiguity.
+    \item Ask the audience to keep three conditions in mind: response length, repeated wording and the vocabulary covered by the diagnostic resources.
+    \item This study evaluates the archived pairs. The translation workflow's row-level model history is incomplete.
+  \end{itemize}
+  Source: camera-ready article, Introduction and Translation Workflow and Provenance. The diagram contains conceptual labels only.
+}
+\end{frame}
